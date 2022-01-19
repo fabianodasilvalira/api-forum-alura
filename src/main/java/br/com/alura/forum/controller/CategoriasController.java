@@ -34,7 +34,7 @@ public class CategoriasController {
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-
+ 
 	
 	@GetMapping
 	public Page<CategoriaDto> listar(@RequestParam(required = false) String nome, Pageable paginacao) {
