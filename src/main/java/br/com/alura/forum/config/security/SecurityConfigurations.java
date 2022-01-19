@@ -47,11 +47,11 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/topicos").permitAll()
-		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
+		.antMatchers(HttpMethod.GET, "/categorias").permitAll()
+		.antMatchers(HttpMethod.GET, "/categorias/*").permitAll()
+		.antMatchers(HttpMethod.DELETE, "/categorias/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-		.antMatchers(HttpMethod.DELETE, "/topicos/*").hasRole("MODERADOR")
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
