@@ -31,7 +31,7 @@ import br.com.alura.forum.repository.CategoriaRepository;
 @RestController
 @RequestMapping("/categorias")
 public class CategoriasController {
-	
+	 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
  
