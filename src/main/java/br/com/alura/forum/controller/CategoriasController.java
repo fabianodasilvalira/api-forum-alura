@@ -26,14 +26,14 @@ import br.com.alura.forum.controller.dto.DetalhesDaCategoriaDto;
 import br.com.alura.forum.controller.form.AtualizacaoCategoriaForm;
 import br.com.alura.forum.controller.form.CategoriaForm;
 import br.com.alura.forum.modelo.Categoria;
-import br.com.alura.forum.repository.CategoriaRepository;
+import br.com.alura.forum.repository.CategoriasRepository;
 
 @RestController
 @RequestMapping("/categorias")
 public class CategoriasController {
 	 
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	private CategoriasRepository categoriaRepository;
  
 	
 	@GetMapping
@@ -66,11 +66,13 @@ public class CategoriasController {
 	@Transactional
 	public ResponseEntity<CategoriaDto> cadastrar(@RequestBody @Valid CategoriaForm form, UriComponentsBuilder uriBuilder) {
 		Categoria categoria = form.converter();
+		System.out.println(categoria);
 		categoriaRepository.save(categoria);
 		
 		URI uri = uriBuilder.path("/categorias/{id}").buildAndExpand(categoria.getId()).toUri();
 		return ResponseEntity.created(uri).body(new CategoriaDto(categoria));
 	}
+	
 	
 	@PutMapping("/{id}")
 	@Transactional

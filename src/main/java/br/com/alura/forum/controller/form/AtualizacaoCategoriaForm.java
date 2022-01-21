@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import br.com.alura.forum.modelo.Categoria;
-import br.com.alura.forum.repository.CategoriaRepository;
+import br.com.alura.forum.repository.CategoriasRepository;
 
 public class AtualizacaoCategoriaForm {
 
@@ -22,7 +22,7 @@ public class AtualizacaoCategoriaForm {
 		this.cor = cor;
 	}
 
-	public Categoria atualizar(Long id, CategoriaRepository categoriaRepository) {
+	public Categoria atualizar(Long id, CategoriasRepository categoriaRepository) {
 		Categoria categoria = categoriaRepository.getOne(id);
 		
 		categoria.setNome(this.nome);
