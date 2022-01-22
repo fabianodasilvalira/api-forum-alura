@@ -1,10 +1,8 @@
 package br.com.alura.forum.controller.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import br.com.alura.forum.modelo.Categoria;
-import br.com.alura.forum.modelo.StatusTopico;
 
 public class DetalhesDaCategoriaDto {
 	private Long id;
